@@ -31,13 +31,20 @@ def generate(file_paths):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('snippets', type=str, nargs='+')
+    parser.add_argument('--write', action='store_true')
     args = parser.parse_args()
+
     file_paths = []
     for snippet in args.snippets:
         file_paths.extend(parse(snippet))
     content = generate(file_paths)
-    with open('.gitignore', 'w') as f:
-        f.writelines('\n\n'.join(content))
+    lines = '\n\n'.join(content)
+
+    if args.write:
+        with open('.gitignore', 'w') as f:
+            f.writelines(lines)
+    else:
+        print(lines)
 
 
 if __name__ == '__main__':

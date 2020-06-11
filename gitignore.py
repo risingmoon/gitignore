@@ -31,7 +31,6 @@ def generate(file_paths):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('snippets', type=str, nargs='+')
-    parser.add_argument('--write', action='store_true')
     args = parser.parse_args()
 
     file_paths = []
@@ -40,11 +39,7 @@ def main():
     content = generate(file_paths)
     lines = '\n'.join(content)
 
-    if args.write:
-        with open('.gitignore', 'w') as f:
-            f.writelines(lines)
-    else:
-        print(lines)
+    print(lines)
 
 
 if __name__ == '__main__':

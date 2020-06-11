@@ -5,7 +5,7 @@ with open('README.md', 'r') as fh:
 
 setuptools.setup(
     name='gitignore-risingmoon',  # Replace with your own username
-    version='0.0.1',
+    version='0.0.2',
     author='Justin Lee',
     author_email='justindavidlee88@gmail.com',
     description='A simple gitignore generator',

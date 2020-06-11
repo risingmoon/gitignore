@@ -38,7 +38,7 @@ def main():
     for snippet in args.snippets:
         file_paths.extend(parse(snippet))
     content = generate(file_paths)
-    lines = '\n\n'.join(content)
+    lines = '\n'.join(content)
 
     if args.write:
         with open('.gitignore', 'w') as f:
